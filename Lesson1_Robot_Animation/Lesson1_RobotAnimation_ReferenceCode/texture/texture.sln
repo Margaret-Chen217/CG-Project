@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "texture", "texture\texture.vcxproj", "{29A1584D-77E8-4861-B1EE-C4AA4B76C6BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29A1584D-77E8-4861-B1EE-C4AA4B76C6BD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{29A1584D-77E8-4861-B1EE-C4AA4B76C6BD}.Debug|Win32.Build.0 = Debug|Win32
+		{29A1584D-77E8-4861-B1EE-C4AA4B76C6BD}.Release|Win32.ActiveCfg = Release|Win32
+		{29A1584D-77E8-4861-B1EE-C4AA4B76C6BD}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

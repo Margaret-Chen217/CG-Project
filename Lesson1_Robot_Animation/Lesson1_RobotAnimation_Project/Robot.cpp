@@ -3,7 +3,7 @@
 //MyGithub:https://github.com/Margaret-Chen217
 /*Reference:*/
 /*DrawRobot-------------- RobotDemo.cpp and https://blog.csdn.net/qq_29721419/article/details/676320648 */
-/*HandShakeAnimation----- RobotDemo.cpp */
+/*ArmAngleShakeAnimation----- RobotDemo.cpp */
 /*Color------------------ https://wenku.baidu.com/view/d1906026f41fb7360b4c2e3f5727a5e9846a277b.html */
 
 #ifdef __APPLE__
@@ -18,7 +18,7 @@
 #include "Robot.h"
 
 /*ControlRotateAngle*/
-static int hand = 0;
+static int ArmAngle = 0;
 
 void init(void)
 {
@@ -31,9 +31,8 @@ void init(void)
 void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	DrawRobot1(hand);
-	
-	DrawRobot2(hand);
+	DrawRobot1(ArmAngle);
+	DrawRobot2(ArmAngle);
 	glutSwapBuffers();
 }
 
@@ -41,15 +40,15 @@ void display(void)
 void idle(void)
 {
 
-	if (hand > -60) {
-		hand--;
+	if (ArmAngle > -60) {
+		ArmAngle--;
 	}
 
-	if (hand == -60)
+	if (ArmAngle == -60)
 	{
 		/*Replay After 2s*/
 		Sleep(2000);
-		hand = 0;
+		ArmAngle = 0;
 	}
 
 	Sleep(100);

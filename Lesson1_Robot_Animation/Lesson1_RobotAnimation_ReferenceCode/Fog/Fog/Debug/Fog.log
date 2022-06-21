@@ -1,0 +1,25 @@
+﻿Build started 2018/6/29 22:29:30.
+     1>Project "E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Fog\Fog.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Fog.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         d:\Program Files (x86)\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Fog.cpp
+         Fog.cpp
+     1>e:\教学\图形程序设计实践\week 2 参考资料\fog\fog\fog.cpp(30): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\vc\include\stdio.h(234) : see declaration of 'fopen'
+     1>e:\教学\图形程序设计实践\week 2 参考资料\fog\fog\fog.cpp(59): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\vc\include\stdio.h(234) : see declaration of 'fopen'
+       Link:
+         d:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Debug\Fog.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Fog.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Debug\Fog.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Debug\Fog.lib" /MACHINE:X86 Debug\Fog.obj
+     1>Fog.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         Fog.vcxproj -> E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Debug\Fog.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Debug\Fog.exe;#1" /manifest Debug\Fog.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\Fog.unsuccessfulbuild".
+         Touching "Debug\Fog.lastbuildstate".
+     1>Done Building Project "E:\教学\图形程序设计实践\Week 2 参考资料\Fog\Fog\Fog.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.70
