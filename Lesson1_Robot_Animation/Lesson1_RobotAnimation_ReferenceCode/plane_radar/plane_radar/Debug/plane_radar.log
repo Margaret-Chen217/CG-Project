@@ -1,3 +1,2 @@
 ﻿  plane_radar.cpp
-plane_radar.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
-  plane_radar.vcxproj -> D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\plane_radar\Debug\plane_radar.exe
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\plane_radar\plane_radar\plane_radar.cpp(161,32): error C2059: 语法错误:“=”

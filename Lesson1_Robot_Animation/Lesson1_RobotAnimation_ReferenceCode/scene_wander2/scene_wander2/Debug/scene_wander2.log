@@ -1,21 +1,3 @@
-﻿Build started 2018/6/24 16:30:27.
-     1>Project "E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\scene_wander2\scene_wander2.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\scene_wander2.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         d:\Program Files (x86)\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt scene_wander2.cpp
-         scene_wander2.cpp
-       Link:
-         d:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\Debug\scene_wander2.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\scene_wander2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\Debug\scene_wander2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\Debug\scene_wander2.lib" /MACHINE:X86 Debug\scene_wander2.obj
-     1>scene_wander2.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-         scene_wander2.vcxproj -> E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\Debug\scene_wander2.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\Debug\scene_wander2.exe;#1" /manifest Debug\scene_wander2.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Debug\scene_wander2.unsuccessfulbuild".
-         Touching "Debug\scene_wander2.lastbuildstate".
-     1>Done Building Project "E:\教学\图形程序设计实践\Week 1 参考资料\scene_wander2\scene_wander2\scene_wander2.vcxproj" (build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.38
+﻿  scene_wander2.cpp
+scene_wander2.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
+  scene_wander2.vcxproj -> D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\scene_wander2\Debug\scene_wander2.exe

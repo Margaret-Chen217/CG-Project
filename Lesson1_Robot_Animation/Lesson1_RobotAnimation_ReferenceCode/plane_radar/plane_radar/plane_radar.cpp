@@ -5,6 +5,7 @@
 #include <math.h>
 
 #define PI  3.141591653
+#define log2 1.41421356
 #define MAP 20 //地面网格数20*20
 int view_angle=1;//view_angle控制视角的变化，默认值为视角1
 int r=0;//控制雷达的旋转角度

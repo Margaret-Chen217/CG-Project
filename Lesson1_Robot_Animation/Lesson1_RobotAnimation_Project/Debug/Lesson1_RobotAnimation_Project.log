@@ -1,2 +1,9 @@
 ﻿  Robot.cpp
-  Lesson1_RobotAnimation_Project.vcxproj -> D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Debug\Lesson1_RobotAnimation_Project.exe
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(45,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(46,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(107,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(122,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(123,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(127,23): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(128,12): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  Lesson1_RobotAnimation_Project.vcxproj -> D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Debug\Lesson1_RobotAnimation_Project.exe
