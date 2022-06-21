@@ -19,6 +19,7 @@
 
 /*ControlRotateAngle*/
 static int ArmAngle = 0;
+int view_angle = 1;
 
 void init(void)
 {
@@ -31,6 +32,20 @@ void init(void)
 void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	if (view_angle == 1)//视角1
+	{
+		//glTranslatef(0,-5,-15);
+		gluLookAt(-15.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	}
+	if (view_angle == 2)//视角2
+	{
+		gluLookAt(2.0f, 2.3f, -posz, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	}
+	
 	DrawRobot1(ArmAngle);
 	DrawRobot2(ArmAngle);
 	glutSwapBuffers();
@@ -39,7 +54,7 @@ void display(void)
 /*ControlAnimation*/
 void idle(void)
 {
-
+	
 	if (ArmAngle > -60) {
 		ArmAngle--;
 	}
@@ -63,9 +78,28 @@ void reshape(int w, int h)
 	gluPerspective(80.0, (GLfloat)w / (GLfloat)h, 1.0, 20.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt(-15.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+
+	if (view_angle == 1)//视角1
+	{
+		//glTranslatef(0,-5,-15);
+		gluLookAt(-15.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	}
+	if (view_angle == 2)//视角2
+	{
+		gluLookAt(2.0f, 2.3f, -posz, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	}
 }
 
+void KeyBoard(unsigned char key, int x, int y) {
+	switch (key) {
+	case 49://数字键1，选择视角1
+		view_angle = 1;
+		break;
+	case 50://数字键2，选择视角2
+		view_angle = 2;
+		break;
+	}
+}
 
 int main(int argc, char** argv)
 {
@@ -77,9 +111,8 @@ int main(int argc, char** argv)
 	init();
 	glutDisplayFunc(display); //绘制场景
 	glutIdleFunc(idle);       //重绘场景，控制动画的播放
+	glutKeyboardFunc(KeyBoard);
 	glutReshapeFunc(reshape);
 	glutMainLoop();
 	return 0;
 }
-
-
