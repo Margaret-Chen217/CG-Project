@@ -3,6 +3,7 @@ e:\教学\图形程序设计实践\week 1 参考资料\scene_wander2\scene_wande
 e:\教学\图形程序设计实践\week 1 参考资料\scene_wander2\debug\scene_wander2.exe
 e:\教学\图形程序设计实践\week 1 参考资料\scene_wander2\scene_wander2\debug\scene_wander2.exe.intermediate.manifest
 e:\教学\图形程序设计实践\week 1 参考资料\scene_wander2\debug\scene_wander2.pdb
+<<<<<<< HEAD
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\vc142.pdb
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\vc142.idb
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.obj
@@ -31,3 +32,22 @@ d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimati
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.tlog\link.command.1.tlog
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.tlog\link.read.1.tlog
 d:\大二下\computergraphicproject\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.tlog\link.write.1.tlog
+=======
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.vcxprojresolveassemblyreference.cache
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.obj
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\cl.command.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\cl.read.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\cl.write.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\link.command.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\link.read.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\link.write.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\mt.command.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\mt.read.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\mt.write.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.write.1.tlog
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\scene_wander2.exe.intermediate.manifest
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\vc100.idb
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\scene_wander2\debug\vc100.pdb
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\debug\scene_wander2.pdb
+d:\computergraphic\cg-project\lesson1_robot_animation\lesson1_robotanimation_referencecode\scene_wander2\debug\scene_wander2.exe
+>>>>>>> 6632e56339526b26857c1992cf82243b3efa2845

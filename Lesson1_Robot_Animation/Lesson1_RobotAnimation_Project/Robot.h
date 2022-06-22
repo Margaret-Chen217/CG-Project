@@ -7,8 +7,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "windows.h"
+<<<<<<< HEAD
 #include "math.h"
-#define MAP 20 //µØÃæÍø¸ñÊý20*20
+=======
+#include <math.h>
+>>>>>>> 6632e56339526b26857c1992cf82243b3efa2845
+#define MAP 20 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½20*20
 #define PI  3.141591653
 
 const  GLfloat posz = 3.5;
@@ -142,7 +146,11 @@ void DrawGround()
 	glEnable(GL_BLEND);
 	glPushMatrix();
 	glColor3f(0.5f, 0.7f, 1.0f);
+<<<<<<< HEAD
 	glTranslatef(0, -6.0f, 0);
+=======
+	glTranslatef(0, -6.0f, 0.0f);
+>>>>>>> 6632e56339526b26857c1992cf82243b3efa2845
 	int size0 = (int)(MAP * 2);
 	glBegin(GL_LINES);
 	for (int x = -size0; x < size0; x += 1)

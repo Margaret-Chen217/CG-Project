@@ -20,9 +20,11 @@
 /*ControlRotateAngle*/
 static int ArmAngle = 0;
 int view_angle = 1;
+
 float ex = -15, ey = 0, ez = 0, cx = 0, cy = 0, cz = 0;
 float s_angle = -90.0;
 float rad = 0.0;
+
 
 void init(void)
 {
@@ -42,17 +44,17 @@ void display(void)
 	float cameraLookAtY = -0.8 * cos(ArmAngle * PI / 180);
 	float cameraLookAtZ = -0.8 * sin(ArmAngle * PI / 180);
 
-	if (view_angle == 1)//ÊÓ½Ç1
+	if (view_angle == 1)//ï¿½Ó½ï¿½1
 	{
 		//glTranslatef(0,-5,-15);
 		gluLookAt(ex, ey, ez, cx, cy, cz, 0.0f, 1.0f, 0.0f);
 	}
-	if (view_angle == 2)//ÊÓ½Ç2
+	if (view_angle == 2)//ï¿½Ó½ï¿½2
 	{
 		gluLookAt(2.0f, 2.3f, -posz + 2, 0.0f, cameraLookAtY, cameraLookAtZ, 0.0f, 1.0f, 0.0f);
 	}
-
 	DrawGround();
+
 
 	DrawRobot1(ArmAngle);
 	DrawRobot2(ArmAngle);
@@ -74,7 +76,6 @@ void idle(void)
 		Sleep(200);
 		ArmAngle = 0;
 	}
-
 	Sleep(100);
 	glutPostRedisplay();
 }
@@ -87,8 +88,6 @@ void reshape(int w, int h)
 	gluPerspective(80.0, (GLfloat)w / (GLfloat)h, 1.0, 20.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-
 }
 
 void KeySight(int key, int x, int y)
@@ -132,21 +131,18 @@ void KeySight(int key, int x, int y)
 	cx = float(ex + disEye2Center * cos(rad));
 	cy = ey;
 	cz = float(ez + disEye2Center * sin(rad));
-
 }
 
 void KeyBoard(unsigned char key, int x, int y) {
 	switch (key) {
-	case 49://Êý×Ö¼ü1£¬Ñ¡ÔñÊÓ½Ç1
+	case 49://ï¿½ï¿½ï¿½Ö¼ï¿½1ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ó½ï¿½1
 		view_angle = 1;
 		break;
-	case 50://Êý×Ö¼ü2£¬Ñ¡ÔñÊÓ½Ç2
+	case 50://ï¿½ï¿½ï¿½Ö¼ï¿½2ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ó½ï¿½2
 		view_angle = 2;
 		break;
 	}
 }
-
-
 
 int main(int argc, char** argv)
 {
@@ -156,8 +152,8 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("RoborAnimation");
 	init();
-	glutDisplayFunc(display); //»æÖÆ³¡¾°
-	glutIdleFunc(idle);       //ÖØ»æ³¡¾°£¬¿ØÖÆ¶¯»­µÄ²¥·Å
+	glutDisplayFunc(display); //ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
+	glutIdleFunc(idle);       //ï¿½Ø»æ³¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 	glutKeyboardFunc(KeyBoard);
 	glutSpecialFunc(KeySight);
 	glutReshapeFunc(reshape);
