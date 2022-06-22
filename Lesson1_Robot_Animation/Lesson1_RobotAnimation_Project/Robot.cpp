@@ -20,6 +20,9 @@
 /*ControlRotateAngle*/
 static int ArmAngle = 0;
 int view_angle = 1;
+float ex = -15, ey = 0, ez = 0, cx = 0, cy = 0, cz = 0;
+float s_angle = -90.0;
+float rad = 0.0;
 
 void init(void)
 {
@@ -36,25 +39,31 @@ void display(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	float cameraLookAtY = -0.8 * cos(ArmAngle * PI / 180);
+	float cameraLookAtZ = -0.8 * sin(ArmAngle * PI / 180);
+
 	if (view_angle == 1)//视角1
 	{
 		//glTranslatef(0,-5,-15);
-		gluLookAt(-15.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		gluLookAt(ex, ey, ez, cx, cy, cz, 0.0f, 1.0f, 0.0f);
 	}
 	if (view_angle == 2)//视角2
 	{
-		gluLookAt(2.0f, 2.3f, -posz, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		gluLookAt(2.0f, 2.3f, -posz + 2, 0.0f, cameraLookAtY, cameraLookAtZ, 0.0f, 1.0f, 0.0f);
 	}
-	
+
+	DrawGround();
+
 	DrawRobot1(ArmAngle);
 	DrawRobot2(ArmAngle);
+
 	glutSwapBuffers();
 }
 
 /*ControlAnimation*/
 void idle(void)
 {
-	
+
 	if (ArmAngle > -60) {
 		ArmAngle--;
 	}
@@ -62,7 +71,7 @@ void idle(void)
 	if (ArmAngle == -60)
 	{
 		/*Replay After 2s*/
-		Sleep(2000);
+		Sleep(200);
 		ArmAngle = 0;
 	}
 
@@ -79,15 +88,51 @@ void reshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	if (view_angle == 1)//视角1
+
+}
+
+void KeySight(int key, int x, int y)
+{
+	float disEye2Center = sqrt((ex - cx) * (ex - cx) + (ey - cy) * (ey - cy) + (ez - cz) * (ez - cz));
+
+	if (key == GLUT_KEY_LEFT)
 	{
-		//glTranslatef(0,-5,-15);
-		gluLookAt(-15.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		s_angle -= 2.0;
 	}
-	if (view_angle == 2)//视角2
+
+	if (key == GLUT_KEY_RIGHT)
 	{
-		gluLookAt(2.0f, 2.3f, -posz, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		s_angle += 2.0;
 	}
+	rad = float(PI * s_angle / 180.0f);
+	if (key == GLUT_KEY_UP)
+	{
+		ez += 0.2 * sin(rad);
+		ex += 0.2 * cos(rad);
+	}
+	 
+	if (key == GLUT_KEY_DOWN)
+	{
+		ez -= 0.2 * sin(rad);
+		ex -= 0.2 * cos(rad);
+	}
+
+	if (key == GLUT_KEY_PAGE_DOWN)
+	{
+		cy += 1.0;
+		ey += 1.0;
+	}
+
+	if (key == GLUT_KEY_PAGE_UP)
+	{
+		cy -= 1.0;
+		ey -= 1.0;
+	}
+
+	cx = float(ex + disEye2Center * cos(rad));
+	cy = ey;
+	cz = float(ez + disEye2Center * sin(rad));
+
 }
 
 void KeyBoard(unsigned char key, int x, int y) {
@@ -101,6 +146,8 @@ void KeyBoard(unsigned char key, int x, int y) {
 	}
 }
 
+
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -112,6 +159,7 @@ int main(int argc, char** argv)
 	glutDisplayFunc(display); //绘制场景
 	glutIdleFunc(idle);       //重绘场景，控制动画的播放
 	glutKeyboardFunc(KeyBoard);
+	glutSpecialFunc(KeySight);
 	glutReshapeFunc(reshape);
 	glutMainLoop();
 	return 0;

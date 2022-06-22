@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "windows.h"
+#include "math.h"
+#define MAP 20 //地面网格数20*20
+#define PI  3.141591653
 
 const  GLfloat posz = 3.5;
 
@@ -131,4 +134,27 @@ void DrawRobot2(int angle) {
 	glScalef(1.0f, 4.0f, 1.0f);
 	glutSolidCube(1.0);
 	glPopMatrix();
+}
+
+void DrawGround()
+{
+	glPushAttrib(GL_CURRENT_BIT);
+	glEnable(GL_BLEND);
+	glPushMatrix();
+	glColor3f(0.5f, 0.7f, 1.0f);
+	glTranslatef(0, -6.0f, 0);
+	int size0 = (int)(MAP * 2);
+	glBegin(GL_LINES);
+	for (int x = -size0; x < size0; x += 1)
+	{
+		glVertex3i(x, 0, -size0); glVertex3i(x, 0, size0);
+	}
+	for (int z = -size0; z < size0; z += 1)
+	{
+		glVertex3i(-size0, 0, z); glVertex3i(size0, 0, z);
+	}
+	glEnd();
+	glPopMatrix();
+	glDisable(GL_BLEND);
+	glPopAttrib();
 }
