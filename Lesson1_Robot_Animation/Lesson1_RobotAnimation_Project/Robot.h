@@ -15,9 +15,16 @@
 const  GLfloat posz = 3.5;
 UINT g_cactus[28];
 GLint sky = 1;
+const static GLfloat red_color[] = { 1.0f, 0.0f, 0.0f, 1.0f };
+const static GLfloat green_color[] = { 0.0f, 1.0f, 0.0f, 0.3333f };
+const static GLfloat blue_color[] = { 0.0f, 0.0f, 1.0f, 0.5f };
+
+void setMatirial(const GLfloat mat_diffuse[4], GLfloat mat_shininess);
+void setLight(void);
 
 void DrawRobot1(int angle) {
 	//DrawCap
+
 	glPushMatrix();
 	glColor3f(1.0f, 0.75294f, 0.79608f);//Pink
 	glTranslatef(0.0f, 5.0f, -posz);
@@ -183,7 +190,53 @@ void DrawGround()
 	glPopAttrib();
 }
 
+void DrawGlassWall()
+{
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	setLight();
+
+	/*setMatirial(red_color, 30.0);
+	glPushMatrix();
+	glTranslatef(0.0f, 0.0f, 0.5f);
+	glutSolidSphere(0.3, 30, 30);
+	glPopMatrix();*/
+
+	glDepthMask(GL_FALSE);
+
+	/*setMatirial(blue_color, 30.0);
+	glPushMatrix();
+	glTranslatef(0.2f, 0.0f, -0.5f);
+	glutSolidSphere(0.2, 30, 30);
+	glPopMatrix();*/
+
+	setMatirial(green_color, 30.0);
+	glPushMatrix();
+	glTranslatef(-10, 0, 0);
+	glScalef(1.0, 10.0, 10.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	glDepthMask(GL_TRUE);
+
+	glDisable(GL_LIGHT0);
+	glDisable(GL_LIGHTING);
+
+	/*glPushMatrix();
+	glTranslatef(0.0f, 4.0f, 0.0f);
+	glColor4f(1, 0, 0, 0.5);
+	glScalef(1.0, 4.0, 4.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor4f(0, 1, 0, 0.5);
+	glTranslatef(1.0f, 4.0f, 1.0f);
+	glScalef(1.0, 4.0, 4.0);
+	glutSolidCube(1.0);
+	glPopMatrix();*/
+}
 
 AUX_RGBImageRec* DIBImageLoad(char* Filename)
 {
@@ -235,3 +288,30 @@ bool LoadT8(char* filename, GLuint& texture)
 	return true;
 }
 
+void setMatirial(const GLfloat mat_diffuse[4], GLfloat mat_shininess)
+{
+	static const GLfloat mat_specular[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	static const GLfloat mat_emission[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, mat_diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_EMISSION, mat_emission);
+	glMaterialf(GL_FRONT, GL_SHININESS, mat_shininess);
+}
+
+void setLight(void)
+{
+	static const GLfloat light_position[] = { 1.0f, 1.0f, -1.0f, 1.0f };
+	static const GLfloat light_ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+	static const GLfloat light_diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	static const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_DEPTH_TEST);
+}

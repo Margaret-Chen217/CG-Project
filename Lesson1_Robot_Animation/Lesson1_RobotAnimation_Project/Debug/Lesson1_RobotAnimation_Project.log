@@ -1,12 +1,12 @@
 ﻿  Robot.cpp
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(205,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(206,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(220,29): warning C4305: “参数”: 从“double”到“GLfloat”截断
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(261,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(275,23): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(276,23): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(281,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(282,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
-  Lesson1_RobotAnimation_Project.vcxproj -> D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Debug\Lesson1_RobotAnimation_Project.exe
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(166,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(167,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(181,29): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(224,22): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(238,23): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(239,23): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(244,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Robot.cpp(245,23): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+  Lesson1_RobotAnimation_Project.vcxproj -> D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_Project\Debug\Lesson1_RobotAnimation_Project.exe
