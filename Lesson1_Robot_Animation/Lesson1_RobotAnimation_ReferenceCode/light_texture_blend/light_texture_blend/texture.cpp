@@ -4,6 +4,7 @@
 #include <glut.h>
 #include <glaux.h>		// Header File For The Glaux Library
 
+
 #define testposition();    glColor3f(1.0,0.0,0.0);\
 	glBegin(GL_LINES);\
 	glVertex3f(0.0,0.0,-0.2);\
@@ -30,8 +31,8 @@
 bool	keys[256];			
 bool	active=TRUE;		
 bool	fullscreen=TRUE;	
-bool	light;				
-bool	lp;					
+bool	light = true;				
+bool	lp = true;					
 bool	fp;					
 
 bool    blend;					// ÊÇ·ñ»ìºÏ
@@ -256,7 +257,7 @@ void keyboard (unsigned char key, int x, int y)
 	switch (key) {
 	case 'l':   /*  s key rotates at shoulder  */
 
-		if (key=='l'&& !lp)
+		if (key=='l')
 		{
 			light=!light;
 			if (!light)
@@ -268,7 +269,6 @@ void keyboard (unsigned char key, int x, int y)
 				glEnable(GL_LIGHTING);
 			}
 		}
-		lp=!lp;
 
 		break;
 	case 'f':

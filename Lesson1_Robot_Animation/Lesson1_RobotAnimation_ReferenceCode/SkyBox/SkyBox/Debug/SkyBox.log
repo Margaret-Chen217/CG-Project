@@ -1,23 +1,4 @@
-﻿Build started 2018/6/29 22:23:02.
-     1>Project "E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\SkyBox\SkyBox.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\SkyBox.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         d:\Program Files (x86)\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Skybox.cpp
-         Skybox.cpp
-     1>e:\教学\图形程序设计实践\week 2 参考资料\skybox\skybox\skybox.cpp(292): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 d:\program files (x86)\vc\include\stdio.h(234) : see declaration of 'fopen'
-       Link:
-         d:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\Debug\SkyBox.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SkyBox.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\Debug\SkyBox.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\Debug\SkyBox.lib" /MACHINE:X86 Debug\Skybox.obj
-     1>Skybox.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-         SkyBox.vcxproj -> E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\Debug\SkyBox.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\Debug\SkyBox.exe;#1" /manifest Debug\SkyBox.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Debug\SkyBox.unsuccessfulbuild".
-         Touching "Debug\SkyBox.lastbuildstate".
-     1>Done Building Project "E:\教学\图形程序设计实践\Week 2 参考资料\SkyBox\SkyBox\SkyBox.vcxproj" (build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.71
+﻿  Skybox.cpp
+D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\SkyBox\SkyBox\Skybox.cpp(292,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+Skybox.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
+  SkyBox.vcxproj -> D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\SkyBox\Debug\SkyBox.exe
