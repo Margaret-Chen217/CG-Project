@@ -33,7 +33,12 @@ float		g_Angle;
 float		g_elev;
 GLfloat r = 0;
 
-float ex = -15, ey = 0, ez = 0, cx = 0, cy = 0, cz = 0;
+GLuint filter;						// 使用哪一个纹理过滤器
+GLuint fogMode[] = { GL_EXP, GL_EXP2, GL_LINEAR };		// 雾气的模式
+GLuint fogfilter = 0;					// 使用哪一种雾气
+GLfloat fogColor[4] = { 0.5f, 0.5f, 0.5f, 1.0f };		// 雾的颜色设为白色
+
+float ex = -15.0, ey = 0, ez = 0, cx = 0, cy = 0, cz = 0;
 float s_angle = -90.0;
 float rad = 0.0;
 
@@ -41,20 +46,25 @@ GLfloat LightAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 GLfloat LightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 GLfloat LightPosition[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 bool light = true;
+bool glass = false;
+bool fog = false;
+
+UINT g_cactus[10];
+UINT texture[10];
 
 void init(void)
 {
 	//glClearColor(1.0f, 0.97255f, 0.86275f, 1.0f);  /*BackGround Color: Cornsilk*/
 	glClearColor(0.0, 0.0, 0.0, 1.0);
-	glShadeModel(GL_FLAT);
+	glShadeModel(GL_SMOOTH);
 	glEnable(GL_DEPTH_TEST);
 
 	/*glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
 	glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);*/
 
-	char str1[] = "textures/4TOP.BMP";
-	LoadT8( str1, g_cactus[0]);
+	char str1[] = "textures/4LEFT.BMP";
+	LoadT8(str1, g_cactus[0]);
 	char str2[] = "textures/4LEFT.BMP";
 	LoadT8(str2, g_cactus[1]);
 	char str3[] = "textures/4LEFT.BMP";
@@ -65,7 +75,24 @@ void init(void)
 	LoadT8(str5, g_cactus[4]);
 	char str6[] = "textures/GROUND.BMP";
 	LoadT8(str6, g_cactus[5]);
-	
+	char str7[] = "textures/Glass/Glass_Pink.BMP";
+	LoadT8(str7, texture[0]);
+	//char str6[] = "textures/GROUND.BMP";
+	//LoadT8(str6, g_cactus[5]);
+	//char str6[] = "textures/GROUND.BMP";
+	//LoadT8(str6, g_cactus[5]);
+	//char str6[] = "textures/GROUND.BMP";
+	//LoadT8(str6, g_cactus[5]);
+
+	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);			// 设置背景的颜色为雾气的颜色
+
+	glFogi(GL_FOG_MODE, fogMode[fogfilter]);		// 设置雾气的模式
+	glFogfv(GL_FOG_COLOR, fogColor);			// 设置雾的颜色
+	glFogf(GL_FOG_DENSITY, 0.1f);			// 设置雾的密度
+	glHint(GL_FOG_HINT, GL_DONT_CARE);			// 设置系统如何计算雾气
+	glFogf(GL_FOG_START, 2.0f);				// 雾气的开始位置
+	glFogf(GL_FOG_END, 5.0f);				// 雾气的结束位置
+
 
 	//glEnable(GL_LIGHT1);	
 }
@@ -153,45 +180,6 @@ GLvoid DrawSky(float scale)
 	glPopMatrix();
 }
 
-BOOL DisplayScene()
-{
-	if (view == 0)
-	{
-		gluLookAt(MAP + 10 + 28 * cos(float(-3.13149 * r / 180.0f)), 15, -MAP - 28 * sin(float(-3.13149 * r / 180.0f)), MAP + 10, 0.5, -MAP, 0.0, 1.0, 0.0);
-		return true;
-	}
-	float speed = 0.1f;
-	if (KEY_DOWN(VK_SHIFT))  speed = speed * 4;
-	if (KEY_DOWN(VK_LEFT))   g_Angle -= speed * 2;
-	if (KEY_DOWN(VK_RIGHT))  g_Angle += speed * 2;
-	rad_xz = float(3.13149 * g_Angle / 180.0f);
-	if (KEY_DOWN('3')) g_elev += 1.0f;//pgUp
-	if (KEY_DOWN('4')) g_elev -= 1.0f;//pgDn
-	if (g_elev < -100)	g_elev = -100;
-	if (g_elev > 100)	g_elev = 100;
-	if (KEY_DOWN(VK_UP))
-	{
-		g_eye[2] += sin(rad_xz) * speed;
-		g_eye[0] += cos(rad_xz) * speed;
-	}
-	if (KEY_DOWN(VK_DOWN))
-	{
-		g_eye[2] -= sin(rad_xz) * speed;
-		g_eye[0] -= cos(rad_xz) * speed;
-	}
-	if (g_eye[0] < -(MAP * 2 - 20))	g_eye[0] = -(MAP * 2 - 20);
-	if (g_eye[0] > (MAP * 2 - 20))	g_eye[0] = (MAP * 2 - 20);
-	if (g_eye[2] < -(MAP * 2 - 20))	g_eye[2] = -(MAP * 2 - 20);
-	if (g_eye[2] > (MAP * 2 - 20))	g_eye[2] = (MAP * 2 - 20);
-	g_eye[1] = 2.8;
-
-	g_look[0] = float(g_eye[0] + 100 * cos(rad_xz));
-	g_look[2] = float(g_eye[2] + 100 * sin(rad_xz));
-	g_look[1] = g_eye[1];
-
-	gluLookAt(g_eye[0], g_eye[1], g_eye[2], g_look[0], g_look[1] + g_elev, g_look[2], 0.0, 1.0, 0.0);
-	return TRUE;
-}
 
 
 /*DrawRobot*/
@@ -205,12 +193,12 @@ void display(void)
 	float cameraLookAtY = -0.8 * cos(ArmAngle * PI / 180);
 	float cameraLookAtZ = -0.8 * sin(ArmAngle * PI / 180);
 
-	if (view_angle == 1)//�ӽ�1
+	if (view_angle == 1)
 	{
 		//glTranslatef(0,-5,-15);
 		gluLookAt(ex, ey, ez, cx, cy, cz, 0.0f, 1.0f, 0.0f);
 	}
-	if (view_angle == 2)//�ӽ�2
+	if (view_angle == 2)
 	{
 		gluLookAt(2.0f, 2.3f, -posz + 2, 0.0f, cameraLookAtY, cameraLookAtZ, 0.0f, 1.0f, 0.0f);
 	}
@@ -219,11 +207,15 @@ void display(void)
 	glPushMatrix();
 	glTranslatef(0.0, -6.1, 0.0);
 	glColor3f(1.0, 1.0, 1.0);
-	DrawSky(150);
+	DrawSky(200);
 	glPopMatrix();
-
 	DrawRobot1(ArmAngle);
-	DrawRobot2(ArmAngle);
+	DrawRobot2(ArmAngle, texture);
+
+	if (glass) {
+		DrawGlassWall();
+	}
+
 
 	glutSwapBuffers();
 }
@@ -275,7 +267,7 @@ void KeySight(int key, int x, int y)
 		ez += 0.4 * sin(rad);
 		ex += 0.4 * cos(rad);
 	}
-	 
+
 	if (key == GLUT_KEY_DOWN)
 	{
 		ez -= 0.4 * sin(rad);
@@ -284,14 +276,14 @@ void KeySight(int key, int x, int y)
 
 	if (key == GLUT_KEY_PAGE_DOWN)
 	{
-		cy += 2.0;
-		ey += 2.0;
+		cy -= 2.0;
+		ey -= 2.0;
 	}
 
 	if (key == GLUT_KEY_PAGE_UP)
 	{
-		cy -= 1.0;
-		ey -= 1.0;
+		cy += 1.0;
+		ey += 1.0;
 	}
 
 	cx = float(ex + disEye2Center * cos(rad));
@@ -301,29 +293,46 @@ void KeySight(int key, int x, int y)
 
 void KeyBoard(unsigned char key, int x, int y) {
 	switch (key) {
-	case 49:
+	case '1':
 		view_angle = 1;
 		break;
-	case 50:
+	case '2':
 		view_angle = 2;
 		break;
-	//case 'l':   /*  s key rotates at shoulder  */
+	case 'l':   /*  s key rotates at shoulder  */
+		if (!light && !glass)
+		{
+			glEnable(GL_LIGHTING);
+			light = true;
+		}
+		else if(light)
+		{
+			glDisable(GL_LIGHTING);
+			light = false;
+		}
+		
 
-	//	if (key == 'l')
-	//	{
-	//		light = !light;
-	//		if (!light)
-	//		{
-	//			glDisable(GL_LIGHTING);
-	//		}
-	//		else
-	//		{
-	//			glEnable(GL_LIGHTING);
-	//		}
-	//	}
-	//	break;
+		break;
+	case 'g':
+		if (glass) {
+			glass = false;
+		}
+		else {
+			glass = true;
+		}
+		break;
+	case 'f':
+		if (fog) {
+			fog = false;
+			glDisable(GL_FOG);
+		}		// 使用雾气
+		else {
+			fog = true;
+			glEnable(GL_FOG);
+		}
 	}
 }
+
 
 int main(int argc, char** argv)
 {
@@ -333,8 +342,8 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("RoborAnimation");
 	init();
-	glutDisplayFunc(display); 
-	glutIdleFunc(idle);       
+	glutDisplayFunc(display);
+	glutIdleFunc(idle);
 	glutKeyboardFunc(KeyBoard);
 	glutSpecialFunc(KeySight);
 	glutReshapeFunc(reshape);
