@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-Debug|Win32|C:\Users\Admin\OneDrive\教学\2022 图形设计实践\wk2\Canvas\|
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:TargetPlatformVersion=10.0.19041.0:
+Debug|Win32|D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\|

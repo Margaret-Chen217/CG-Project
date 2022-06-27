@@ -1,31 +1,57 @@
 ﻿  canvas.cpp
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(143): warning C4305: “参数”: 从“double”到“GLfloat”截断
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(145): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(145): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(150): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(150): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(156): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(164): warning C4305: “参数”: 从“double”到“GLfloat”截断
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(166): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(171): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(176): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(177): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(185): warning C4305: “参数”: 从“double”到“GLfloat”截断
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(187): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(192): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(197): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(204): warning C4305: “参数”: 从“double”到“GLfloat”截断
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(206): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(210): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(219): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(235): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(236): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(236): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(240): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(241): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(241): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(296): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(306): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
-c:\users\admin\onedrive\教学\2022 图形设计实践\wk2\canvas\canvas.cpp(319): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
-  Canvas.vcxproj -> C:\Users\Admin\OneDrive\教学\2022 图形设计实践\wk2\Canvas\Debug\Canvas.exe
-  Canvas.vcxproj -> C:\Users\Admin\OneDrive\教学\2022 图形设计实践\wk2\Canvas\Debug\Canvas.pdb (Full PDB)
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(143,30): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(145,38): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(145,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(145,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(150,38): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(150,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(150,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(156,29): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(156,17): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(164,30): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(166,41): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(166,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(166,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(171,41): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(171,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(171,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(176,31): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(176,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(177,31): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(177,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(185,30): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(187,41): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(187,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(187,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(192,41): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(192,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(192,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(197,55): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(197,42): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(197,28): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(197,15): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(204,25): warning C4305: “参数”: 从“double”到“GLfloat”截断
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(206,57): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(206,23): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(210,57): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(210,23): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(219,20): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(219,13): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(235,19): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(236,27): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(236,19): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(240,30): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(240,17): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(241,26): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(241,14): warning C4244: “参数”: 从“int”转换到“GLfloat”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(296,54): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(296,51): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(306,44): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(306,41): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(306,34): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(306,27): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(319,49): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(319,46): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(319,39): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\canvas.cpp(319,32): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  Canvas.vcxproj -> D:\ComputerGraphic\CG-Project\Lesson2_Painter\Lesson2_Painter_ReferenceCode\Canvas\Debug\Canvas.exe
