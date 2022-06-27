@@ -1,5 +1,5 @@
 ﻿  texture.cpp
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\texture\texture.cpp(45,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\texture\texture.cpp(74,7): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\texture\texture.cpp(45,8): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\texture\texture.cpp(74,7): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 texture.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
-  texture.vcxproj -> D:\大二下\ComputerGraphicProject\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\Debug\texture.exe
+  texture.vcxproj -> D:\ComputerGraphic\CG-Project\Lesson1_Robot_Animation\Lesson1_RobotAnimation_ReferenceCode\texture\Debug\texture.exe

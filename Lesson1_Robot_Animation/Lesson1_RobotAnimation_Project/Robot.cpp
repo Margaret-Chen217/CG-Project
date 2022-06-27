@@ -6,6 +6,10 @@
 /*ShakeAnimation--------- RobotDemo.cpp */
 /*Color------------------ https://wenku.baidu.com/view/d1906026f41fb7360b4c2e3f5727a5e9846a277b.html */
 /*Text------------------- https://blog.csdn.net/qq_35040828/article/details/51758258 */
+/*Meterial--------------- https://dude6.com/article/362241.html */
+
+
+
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -65,13 +69,13 @@ void init(void)
 
 	char str1[] = "textures/4LEFT.BMP";
 	LoadT8(str1, g_cactus[0]);
-	char str2[] = "textures/4LEFT.BMP";
+	char str2[] = "textures/4RIGHT.BMP";
 	LoadT8(str2, g_cactus[1]);
-	char str3[] = "textures/4LEFT.BMP";
+	char str3[] = "textures/4FRONT.BMP";
 	LoadT8(str3, g_cactus[2]);
-	char str4[] = "textures/4LEFT.BMP";
+	char str4[] = "textures/4RBACK.BMP";
 	LoadT8(str4, g_cactus[3]);
-	char str5[] = "textures/4LEFT.BMP";
+	char str5[] = "textures/4TOP.BMP";
 	LoadT8(str5, g_cactus[4]);
 	char str6[] = "textures/GROUND.BMP";
 	LoadT8(str6, g_cactus[5]);
@@ -97,90 +101,6 @@ void init(void)
 	//glEnable(GL_LIGHT1);	
 }
 
-GLvoid DrawSky(float scale)
-{
-	glPushMatrix();
-	glTranslatef(0.0, scale - 1, 0.0);
-	glScalef(scale, scale, scale);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[0]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);//纹理过滤，把纹理像素映射成像素
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);// 前
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, 1.0f);
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[1]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, -1.0f);// 左
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, 1.0f, 1.0f);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[2]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);// 右
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[3]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, -1.0f);// 后
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, -1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[4]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);// 上
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, 1.0f, 1.0f);
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, -1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, g_cactus[5]);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glBegin(GL_QUADS);
-	glTexCoord2f(1.0f, 1.0f); glVertex3f(-1.0f, -1.0f, -1.0f);// 下
-	glTexCoord2f(0.0f, 1.0f); glVertex3f(1.0f, -1.0f, -1.0f);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(1.0f, -1.0f, 1.0f);
-	glTexCoord2f(1.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-
-
-	glPopMatrix();
-}
-
-
 
 /*DrawRobot*/
 void display(void)
@@ -193,6 +113,8 @@ void display(void)
 	float cameraLookAtY = -0.8 * cos(ArmAngle * PI / 180);
 	float cameraLookAtZ = -0.8 * sin(ArmAngle * PI / 180);
 
+	
+
 	if (view_angle == 1)
 	{
 		//glTranslatef(0,-5,-15);
@@ -203,11 +125,10 @@ void display(void)
 		gluLookAt(2.0f, 2.3f, -posz + 2, 0.0f, cameraLookAtY, cameraLookAtZ, 0.0f, 1.0f, 0.0f);
 	}
 	DrawGround();
-
 	glPushMatrix();
 	glTranslatef(0.0, -6.1, 0.0);
 	glColor3f(1.0, 1.0, 1.0);
-	DrawSky(200);
+	DrawSky(200, g_cactus);
 	glPopMatrix();
 	DrawRobot1(ArmAngle);
 	DrawRobot2(ArmAngle, texture);
@@ -216,6 +137,37 @@ void display(void)
 		DrawGlassWall();
 	}
 
+
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glRasterPos3f(-5.0f, 7.0f, -12.0f);
+	drawString("22920202205195");
+	
+	glRasterPos3f(-5.0f, 6.0f, -12.0f);
+	drawString("RobotAnimation byMargaretChen");
+
+	glRasterPos3f(-5.0f, 5.0f, -12.0f);
+	drawString("LIGHT ----'L'");
+
+	glRasterPos3f(-5.0f, 4.0f, -12.0f);
+	drawString("FOG -------'F'");
+
+	glRasterPos3f(-5.0f, 3.0f, -12.0f);
+	drawString("Glass-----'G'");
+
+	glRasterPos3f(-5.0f, 2.0f, -12.0f);
+	drawString("ChangeView-------------------------------'1/2'");
+
+	glRasterPos3f(-5.0f, 1.0f, -12.0f);
+	drawString("Move Forward/Back---------'UP/DOWN'");
+
+	glRasterPos3f(-5.0f, 0.0f, -12.0f);
+	drawString("Move Up/Down--'PageUp/PageDown'");
+
+	glRasterPos3f(-5.0f, -1.0f, -12.0f);
+	drawString("Look Left/Right-------------'LEFT/RIGHT'");
+
+
+	
 
 	glutSwapBuffers();
 }
@@ -276,14 +228,14 @@ void KeySight(int key, int x, int y)
 
 	if (key == GLUT_KEY_PAGE_DOWN)
 	{
-		cy -= 2.0;
-		ey -= 2.0;
+		cy -= 3.0;
+		ey -= 3.0;
 	}
 
 	if (key == GLUT_KEY_PAGE_UP)
 	{
-		cy += 1.0;
-		ey += 1.0;
+		cy += 3.0;
+		ey += 3.0;
 	}
 
 	cx = float(ex + disEye2Center * cos(rad));
@@ -310,8 +262,6 @@ void KeyBoard(unsigned char key, int x, int y) {
 			glDisable(GL_LIGHTING);
 			light = false;
 		}
-		
-
 		break;
 	case 'g':
 		if (glass) {
@@ -333,11 +283,10 @@ void KeyBoard(unsigned char key, int x, int y) {
 	}
 }
 
-
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(800, 500);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("RoborAnimation");
