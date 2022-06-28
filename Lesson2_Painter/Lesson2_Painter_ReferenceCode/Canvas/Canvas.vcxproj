@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="canvas.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Painter.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{92e92053-ab57-485c-8ed9-17c559766afa}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
