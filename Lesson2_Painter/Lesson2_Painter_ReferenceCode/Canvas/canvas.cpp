@@ -15,9 +15,12 @@
 #define NUMBERPRIMITIVES 6
 #define PI 3.1415926
 
-#define RED (1.0,0.0,0.0);
-#define BLUE (0.0,0.0,1.0);
-#define GREEN (0.0,1.0,0.0);
+#define REDX 0
+#define BLUEX 1
+#define GREENX 2
+#define BLACKX 3
+
+static int Color;
 
 // Globals.
 static int width, height; // OpenGL window size.
@@ -27,21 +30,45 @@ static int pointCount = 0; // Number of  specified points.
 static int tempX, tempY; // Co-ordinates of clicked point.
 static int isGrid = 0; // Is there grid?
 static int isFilled = 0;
-static int PolyLineIsFinished = 0;
+
+static float* px = NULL;
+static float* py = NULL;
+
+static float** ppx = NULL;
+static float** ppy = NULL;
+
+void colorChange(int i) {
+	std::cout << "Color: " << i << std::endl;
+	if (i == BLACKX) {
+		glColor3f(0.0, 0.0, 0.0);
+	}
+	else if (i == REDX) {
+		glColor3f(1.0, 0.0, 0.0);
+	}
+	else if (i == BLUEX) {
+		glColor3f(0.0, 0.0, 1.0);
+	}
+	else if (i == GREENX) {
+		glColor3f(0.0, 1.0, 0.0);
+	}
+
+}
 
 // Point class.
 class Point
 {
 public:
-	Point(float xVal, float yVal, float sizeVal)
+	Point(float xVal, float yVal, float sizeVal, int c)
 	{
 		x = xVal; y = yVal; size = sizeVal;
+		color = c;
 	}
 	Point() {};
 	void drawPoint(void); // Function to draw a point.
 private:
 	float x, y; // x and y co-ordinates of point.
 	float size; // Size of point.
+	int color;
 };
 
 //float Point::size = pointSize; // Set point size.
@@ -50,6 +77,7 @@ private:
 void Point::drawPoint()
 {
 	glPointSize(size);
+	colorChange(color);
 	glBegin(GL_POINTS);
 	glVertex3f(x, y, 0.0);
 	glEnd();
@@ -72,20 +100,23 @@ void drawPoints(void)
 class Line
 {
 public:
-	Line(float x1Val, float y1Val, float x2Val, float y2Val)
+	Line(float x1Val, float y1Val, float x2Val, float y2Val, int c)
 	{
 		x1 = x1Val; y1 = y1Val; x2 = x2Val; y2 = y2Val;
+		color = c;
 	}
 	Line() {};
 	void drawLine();
 private:
 	float x1, y1, x2, y2; // x and y co-ordinates of endpoints.
+	int color;
 };
 
 
 // Function to draw a line.
 void Line::drawLine()
 {
+	colorChange(color);
 	glBegin(GL_LINES);
 	glVertex3f(x1, y1, 0.0);
 	glVertex3f(x2, y2, 0.0);
@@ -106,21 +137,33 @@ void drawLines(void)
 class Rect
 {
 public:
-	Rect(float x1Val, float y1Val, float x2Val, float y2Val)
+	Rect(float x1Val, float y1Val, float x2Val, float y2Val, bool f, int c)
 	{
 		x1 = x1Val; y1 = y1Val; x2 = x2Val; y2 = y2Val;
+		filled = f;
+		color = c;
 	}
 	Rect() {};
 	void drawRectangle();
 private:
 	float x1, y1, x2, y2; // x and y co-ordinates of diagonally opposite vertices.
+	bool filled;
+	int color;
 };
 
 // Function to draw a rectangle.
 void Rect::drawRectangle()
 {
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	glRectf(x1, y1, x2, y2);
+	colorChange(color);
+	if (filled) {
+		std::cout << "Filled" << std::endl;
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glRectf(x1, y1, x2, y2);
+	}
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glRectf(x1, y1, x2, y2);
+	}
 }
 
 // Vector of rectangles.
@@ -136,27 +179,53 @@ void drawRectangles(void)
 class Circle
 {
 public:
-	Circle(float posx, float posy, float radius)
+	Circle(float posx, float posy, float radius, bool f, int c)
 	{
-		x = posx; y = posy; radius = r;
+		x = posx; y = posy; r = radius;
+		filled = f;
+		color = c;
 	}
 	Circle() {};
 	void drawCircle();
 private:
 	float x, y, r;
+	bool filled;
+	int color;
 };
 
 // Function to draw a circles
 void Circle::drawCircle()
 {
 	//绘制圆形
-	glBegin(GL_LINE_LOOP);
-	int n = 50;
-	for (int i = 0; i < n; i++)     //通过数学计算来画多边形的点
-	{
-		glVertex2f(0.25 * width + 0.025 * width * cos(2 * PI * i / n), 0.45 * height + 0.025 * width * sin(2 * PI * i / n));
+	std::cout << "COLOR: " << Color << std::endl;
+	colorChange(color);
+	if (filled) {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_TRIANGLES);
+		int n = 100;
+		for (int i = 0; i < n; i++)     //通过数学计算来画多边形的点
+		{
+			//std::cout << x << " " << y <<  " " << r << std::endl;
+			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
+			glVertex2f(x, y);
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+			glVertex2f(x + r * cos(2 * PI * (i + 1) / n), y + r * sin(2 * PI * (1 + i) / n));
+		}
+		glEnd();
 	}
-	glEnd();
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_LINE_LOOP);
+		int n = 50;
+		for (int i = 0; i < n; i++)     //通过数学计算来画多边形的点
+		{
+			//std::cout << x << " " << y <<  " " << r << std::endl;
+			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
+
 
 }
 
@@ -173,20 +242,50 @@ void drawCircles(void)
 class Hexagon
 {
 public:
-	Hexagon(float posx, float posy, float distance)
+	Hexagon(float posx, float posy, float distance, bool f, int c)
 	{
-		x = posx, y = posy, d = distance;
+		x = posx, y = posy, r = distance;
+		filled = f;
 	}
 	Hexagon() {};
 	void drawHexagon();
 private:
-	float x, y, d;
+	float x, y, r;
+	bool filled;
+	int color;
 };
 
 // Function to draw a Hexagon.
 void Hexagon::drawHexagon()
 {
-	//绘制六边形
+	colorChange(color);
+	std::cout << "isFilled = " << isFilled << std::endl;
+	std::cout << "filled = " << filled << std::endl;
+	if (filled)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_TRIANGLES);
+		int n = 6;
+		for (int i = 0; i < n; i++)     //通过数学计算来画多边形的点
+		{
+			glVertex2f(x, y);
+			glVertex2f(x + r * cos(2 * PI * (i + 1) / n), y + r * sin(2 * PI * (i + 1) / n));
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
+	else {
+		std::cout << "!" << std::endl;
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
+		glBegin(GL_LINE_LOOP);
+		int n = 6;
+		for (int i = 0; i < n; i++)     //通过数学计算来画多边形的点
+		{
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
+
 }
 
 // Vector of circles
@@ -199,46 +298,52 @@ void drawHexagons(void)
 	for (auto hexagon : hexagons) { hexagon.drawHexagon(); }
 }
 
-
-class Polyline
+class Polylinex
 {
 public:
-	Polyline(float posx[], float posy[])
+	Polylinex(float posx[], float posy[], int c, int co)
 	{
-		int i = 0;
-		while (posx != NULL && i < 20) {
+		count = c;
+		for (int i = 0; i < c; i++) {
 			x[i] = posx[i];
 			y[i] = posy[i];
 			i++;
-		}
+		};
 	}
-	Polyline() {};
+	Polylinex() {};
 	void drawPolyline();
 private:
 	float x[20];
 	float y[20];
+	int count;
+	int color;
 };
 
-// Function to draw a circles
-void Polyline::drawPolyline()
-{
-	//绘制折现
-	glBegin(GL_LINE_STRIP);
-	//
-	glEnd();
+// Function to draw a polyline
+void Polylinex::drawPolyline()
 
+{
+	colorChange(color);
+	//绘制折线
+	glBegin(GL_LINE_STRIP);
+	std::cout << "drawPoly" << std::endl;
+	for (int i = 0; i < count; i++) {
+		std::cout << "px[" << i << "] = " << px[i] << "py[" << i << "] = " << py[i] << std::endl;
+		glVertex2f(px[i], py[i]);
+		std::cout << "i = " << i << std::endl;
+	}
+	glEnd();
 }
 
-// Vector of circles
-std::vector<Polyline> polylines;
+// Vector of Polyline
+std::vector<Polylinex> polylines;
 
 // Function to draw all circles in the circles array.
-void drawCircles(void)
+void drawPolylines(void)
 {
 	// Loop through the circles array drawing each circle.
-	for (auto circle : circles) { circle.drawCircle(); }
+	for (auto polyline : polylines) { polyline.drawPolyline(); }
 }
-
 
 // Function to draw point selection box in left selection area.
 void drawPointSelectionBox(void)
@@ -282,7 +387,6 @@ void drawLineSelectionBox(void)
 	glVertex3f(0.075 * width, 0.875 * height, 0.0);
 	glEnd();
 }
-
 
 // Function to draw rectangle selection box in left selection area.
 void drawRectangleSelectionBox(void)
@@ -398,7 +502,20 @@ void drawTempPoint(void)
 	glVertex3f(tempX, tempY, 0.0);
 	glEnd();
 }
-
+void drawPolyTempPoint()
+{
+	int i = 0;
+	glColor3f(1.0, 0.0, 0.0);
+	glPointSize(pointSize);
+	glBegin(GL_POINTS);
+	if (px) {
+		while (px[i]) {
+			glVertex3f(px[i], py[i], 0.0);
+			i++;
+		}
+	}
+	glEnd();
+}
 // Function to draw a grid.
 void drawGrid(void)
 {
@@ -442,12 +559,16 @@ void drawScene(void)
 	drawRectangles();
 	drawCircles();
 	drawHexagons();
+	drawPolylines();
 
 	if (((primitive == LINE) ||
 		(primitive == RECTANGLE)) && (pointCount == 1) ||
 		(primitive == CIRCLE) && (pointCount == 1) ||
-		(primitive == HEXAGON) && (pointCount == 1) ||
-		(primitive == POLYLINE) && (!PolyLineIsFinished)) drawTempPoint();
+		(primitive == HEXAGON) && (pointCount == 1))drawTempPoint();
+	else if ((primitive == POLYLINE)) {
+		drawPolyTempPoint();
+
+	}
 
 	if (isGrid) drawGrid();
 	glutSwapBuffers();
@@ -484,7 +605,7 @@ void mouseControl(int button, int state, int x, int y)
 		// Click in canvas.
 		else
 		{
-			if (primitive == POINT) points.push_back(Point(x, y, pointSize));
+			if (primitive == POINT) points.push_back(Point(x, y, pointSize, Color));
 			else if (primitive == LINE)
 			{
 				if (pointCount == 0)
@@ -494,7 +615,7 @@ void mouseControl(int button, int state, int x, int y)
 				}
 				else
 				{
-					lines.push_back(Line(tempX, tempY, x, y));
+					lines.push_back(Line(tempX, tempY, x, y, Color));
 					pointCount = 0;
 				}
 			}
@@ -507,7 +628,7 @@ void mouseControl(int button, int state, int x, int y)
 				}
 				else
 				{
-					rectangles.push_back(Rect(tempX, tempY, x, y));
+					rectangles.push_back(Rect(tempX, tempY, x, y, isFilled, Color));
 					pointCount = 0;
 				}
 			}
@@ -518,11 +639,33 @@ void mouseControl(int button, int state, int x, int y)
 					pointCount++;
 				}
 				else {
-					float minusX = fabs(x - tempX) / width;
-					float minusY = fabs(y - tempY) / height;
-					float r = sqrt(minusX * minusX + minusY * minusY);
-					hexagons.push_back(Hexagon(tempX, tempY, r));
-					pointCount = 0;
+					if (pointCount == 0)
+					{
+						tempX = x; tempY = y;
+						pointCount++;
+					}
+					else
+					{
+						/*std::cout << "x = " << x << std::endl;
+						std::cout << "y = " << y << std::endl;
+						std::cout << "tempX = " << tempX << std::endl;
+						std::cout << "tempY = " << tempY << std::endl;*/
+						float midX = (x + tempX) / 2.0;
+						float midY = (y + tempY) / 2.0;
+						//std::cout << "midX = " << midX << std::endl;
+						//std::cout << "midY = " << midY << std::endl;
+						float minusX = (x - tempX);
+						float minusY = (y - tempY);
+						/*std::cout << "minusX2 = " << minusX*minusX << std::endl;
+						std::cout << "minusY2 = " << minusY*minusY << std::endl;*/
+						float sum = minusX * minusX + minusY * minusY;
+						float d = sqrt(sum);
+						float r = d / 2.0;
+						//std::cout << "r = " << r << std::endl;
+						//circles.push_back(Circle(midX, midY, r));
+						hexagons.push_back(Hexagon(midX, midY, r, isFilled, Color));
+						pointCount = 0;
+					}
 				}
 			}
 			else if (primitive == CIRCLE) {
@@ -533,26 +676,56 @@ void mouseControl(int button, int state, int x, int y)
 				}
 				else
 				{
-					float minusX = fabs(x - tempX) / width;
-					float minusY = fabs(y - tempY) / height;
-					float r = sqrt(minusX * minusX + minusY * minusY);
-					circles.push_back(Circle(tempX, tempY, r));
+					/*std::cout << "x = " << x << std::endl;
+					std::cout << "y = " << y << std::endl;
+					std::cout << "tempX = " << tempX << std::endl;
+					std::cout << "tempY = " << tempY << std::endl;*/
+					float midX = (x + tempX) / 2.0;
+					float midY = (y + tempY) / 2.0;
+					//std::cout << "midX = " << midX << std::endl;
+					//std::cout << "midY = " << midY << std::endl;
+					float minusX = (x - tempX);
+					float minusY = (y - tempY);
+					/*std::cout << "minusX2 = " << minusX*minusX << std::endl;
+					std::cout << "minusY2 = " << minusY*minusY << std::endl;*/
+					float sum = minusX * minusX + minusY * minusY;
+					float d = sqrt(sum);
+					float r = d / 2.0;
+					//std::cout << "r = " << r << std::endl;
+					circles.push_back(Circle(midX, midY, r, isFilled, Color));
 					pointCount = 0;
 				}
 			}
 			else if (primitive == POLYLINE) {
 				if (pointCount == 0) {
+					px = new float[20];
+					py = new float[20];
+					std::cout << "pointCount = " << pointCount << std::endl;
+					px[pointCount] = x;
+					py[pointCount] = y;
+					pointCount++;
 
+				}
+				else {
+					std::cout << "h2" << pointCount << std::endl;
+					px[pointCount] = x;
+					py[pointCount] = y;
+					pointCount++;
 				}
 			}
 		}
-		if (button == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN) {
-			PolyLineIsFinished = 1;
-		}
+
+
+	}
+	if (button == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN) {
+		px[pointCount] = x;
+		py[pointCount] = y;
+		pointCount++;
+		polylines.push_back(Polylinex(px, py, pointCount, Color));
+		pointCount = 0;
 	}
 	glutPostRedisplay();
 }
-
 // OpenGL window reshape routine.
 void resize(int w, int h)
 {
@@ -590,11 +763,17 @@ void clearAll(void)
 	points.clear();
 	lines.clear();
 	rectangles.clear();
+	circles.clear();
+	hexagons.clear();
+	polylines.clear();
+
+
 	primitive = INACTIVE;
 	pointCount = 0;
 }
 
 // The right button menu callback function.
+
 void rightMenu(int id)
 {
 	if (id == 1)
@@ -612,19 +791,56 @@ void grid_menu(int id)
 	if (id == 4) isGrid = 0;
 	glutPostRedisplay();
 }
-
+void color_menu(int id) {
+	std::cout << "Colorid = " << id << std::endl;
+	if (id == 7) {
+		Color = BLACKX;
+	}
+	else if (id == 8) {
+		Color = REDX; 
+	}
+	else if (id == 9) {
+		Color = BLUEX;
+	}
+	else if (id == 10) {
+		Color = GREENX; 
+	}
+	std::cout << "GColor = " << Color << std::endl;
+}
+void filled_menu(int id) {
+	if (id == 5) isFilled = 1;
+	if (id == 6) isFilled = 0;
+}
 // Function to create menu.
 void makeMenu(void)
 {
 	int sub_menu;
-	sub_menu = glutCreateMenu(grid_menu);
+	int sub_menu1;
+	int sub_menu2;
+
+	sub_menu2 = glutCreateMenu(color_menu);
+	glutAddMenuEntry("BLACK", 7);
+	glutAddMenuEntry("RED", 8);
+	glutAddMenuEntry("BLUE", 9);
+	glutAddMenuEntry("GREEN", 10);
+
+	sub_menu = glutCreateMenu(filled_menu);
+	glutAddMenuEntry("On", 5);
+	glutAddMenuEntry("Off", 6);
+
+	sub_menu1 = glutCreateMenu(grid_menu);
 	glutAddMenuEntry("On", 3);
 	glutAddMenuEntry("Off", 4);
 
+
+
 	glutCreateMenu(rightMenu);
-	glutAddSubMenu("Grid", sub_menu);
+	glutAddSubMenu("Grid", sub_menu1);
+	glutAddSubMenu("Filled", sub_menu);
+	glutAddSubMenu("Color", sub_menu2);
 	glutAddMenuEntry("Clear", 1);
 	glutAddMenuEntry("Quit", 2);
+
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 }
 
