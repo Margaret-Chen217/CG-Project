@@ -1,4 +1,4 @@
-#include <cstdlib>
+ï»¿#include <cstdlib>
 #include <vector>
 #include <iostream>
 #include <GL/glew.h>
@@ -38,7 +38,7 @@ static float** ppx = NULL;
 static float** ppy = NULL;
 
 void colorChange(int i) {
-	std::cout << "Color: " << i << std::endl;
+	//std::cout << "Color: " << i << std::endl;
 	if (i == BLACKX) {
 		glColor3f(0.0, 0.0, 0.0);
 	}
@@ -156,7 +156,7 @@ void Rect::drawRectangle()
 {
 	colorChange(color);
 	if (filled) {
-		std::cout << "Filled" << std::endl;
+		/*std::cout << "Filled" << std::endl;*/
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glRectf(x1, y1, x2, y2);
 	}
@@ -196,14 +196,14 @@ private:
 // Function to draw a circles
 void Circle::drawCircle()
 {
-	//»æÖÆÔ²ÐÎ
-	std::cout << "COLOR: " << Color << std::endl;
+	//ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	/*std::cout << "COLOR: " << Color << std::endl;*/
 	colorChange(color);
 	if (filled) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glBegin(GL_TRIANGLES);
 		int n = 100;
-		for (int i = 0; i < n; i++)     //Í¨¹ýÊýÑ§¼ÆËãÀ´»­¶à±ßÐÎµÄµã
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
 		{
 			//std::cout << x << " " << y <<  " " << r << std::endl;
 			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
@@ -217,7 +217,7 @@ void Circle::drawCircle()
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glBegin(GL_LINE_LOOP);
 		int n = 50;
-		for (int i = 0; i < n; i++)     //Í¨¹ýÊýÑ§¼ÆËãÀ´»­¶à±ßÐÎµÄµã
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
 		{
 			//std::cout << x << " " << y <<  " " << r << std::endl;
 			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
@@ -246,6 +246,7 @@ public:
 	{
 		x = posx, y = posy, r = distance;
 		filled = f;
+		color = c;
 	}
 	Hexagon() {};
 	void drawHexagon();
@@ -259,14 +260,14 @@ private:
 void Hexagon::drawHexagon()
 {
 	colorChange(color);
-	std::cout << "isFilled = " << isFilled << std::endl;
-	std::cout << "filled = " << filled << std::endl;
+	std::cout << "CColor = " << color << std::endl;
+	std::cout << "GColor = " << Color << std::endl;
 	if (filled)
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glBegin(GL_TRIANGLES);
 		int n = 6;
-		for (int i = 0; i < n; i++)     //Í¨¹ýÊýÑ§¼ÆËãÀ´»­¶à±ßÐÎµÄµã
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
 		{
 			glVertex2f(x, y);
 			glVertex2f(x + r * cos(2 * PI * (i + 1) / n), y + r * sin(2 * PI * (i + 1) / n));
@@ -275,11 +276,11 @@ void Hexagon::drawHexagon()
 		glEnd();
 	}
 	else {
-		std::cout << "!" << std::endl;
+		//std::cout << "!" << std::endl;
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
 		glBegin(GL_LINE_LOOP);
 		int n = 6;
-		for (int i = 0; i < n; i++)     //Í¨¹ýÊýÑ§¼ÆËãÀ´»­¶à±ßÐÎµÄµã
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
 		{
 			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
 		}
@@ -324,7 +325,7 @@ void Polylinex::drawPolyline()
 
 {
 	colorChange(color);
-	//»æÖÆÕÛÏß
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	glBegin(GL_LINE_STRIP);
 	std::cout << "drawPoly" << std::endl;
 	for (int i = 0; i < count; i++) {
@@ -361,7 +362,7 @@ void drawPointSelectionBox(void)
 
 	// Draw point icon.
 	glPointSize(pointSize);
-	glColor3f(0.0, 0.0, 0.0);
+	colorChange(Color);
 	glBegin(GL_POINTS);
 	glVertex3f(0.05 * width, 0.95 * height, 0.0);
 	glEnd();
@@ -381,7 +382,7 @@ void drawLineSelectionBox(void)
 	glRectf(0.0, 0.8 * height, 0.1 * width, 0.9 * height);
 
 	// Draw line icon.
-	glColor3f(0.0, 0.0, 0.0);
+	colorChange(Color);
 	glBegin(GL_LINES);
 	glVertex3f(0.025 * width, 0.825 * height, 0.0);
 	glVertex3f(0.075 * width, 0.875 * height, 0.0);
@@ -402,9 +403,18 @@ void drawRectangleSelectionBox(void)
 	glRectf(0.0, 0.7 * height, 0.1 * width, 0.8 * height);
 
 	// Draw rectangle icon.
-	glColor3f(0.0, 0.0, 0.0);
+	colorChange(Color);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	glRectf(0.025 * width, 0.735 * height, 0.075 * width, 0.765 * height);
+	//glRectf(0.025 * width, 0.735 * height, 0.075 * width, 0.765 * height);
+	if (isFilled) {
+		/*std::cout << "Filled" << std::endl;*/
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glRectf(0.025 * width, 0.735 * height, 0.075 * width, 0.765 * height);
+	}
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glRectf(0.025 * width, 0.735 * height, 0.075 * width, 0.765 * height);
+	}
 	glEnd();
 }
 
@@ -421,16 +431,42 @@ void drawHexagonSelectionBox(void)
 	glRectf(0.0, 0.6 * height, 0.1 * width, 0.7 * height);
 
 	// Draw rectangle icon.
-	glColor3f(0.0, 0.0, 0.0);
-	glBegin(GL_LINE_LOOP);
-	//std::cout << "Drawing Hexagon" << std::endl;
-	glVertex2f((0.05 - 0.0125) * width, (0.65 + 0.0125) * height);
-	glVertex2f((0.05 + 0.0125) * width, (0.65 + 0.0125) * height);
-	glVertex2f((0.05 + 0.025) * width, (0.65 + 0.0) * height);
-	glVertex2f((0.05 + 0.0125) * width, (0.65 - 0.0125) * height);
-	glVertex2f((0.05 - 0.0125) * width, (0.65 - 0.0125) * height);
-	glVertex2f((0.05 - 0.025) * width, (0.65 + 0.0) * height);
-	glEnd();
+	colorChange(Color);
+	//glBegin(GL_LINE_LOOP);
+	////std::cout << "Drawing Hexagon" << std::endl;
+	//glVertex2f((0.05 - 0.0125) * width, (0.65 + 0.0125) * height);
+	//glVertex2f((0.05 + 0.0125) * width, (0.65 + 0.0125) * height);
+	//glVertex2f((0.05 + 0.025) * width, (0.65 + 0.0) * height);
+	//glVertex2f((0.05 + 0.0125) * width, (0.65 - 0.0125) * height);
+	//glVertex2f((0.05 - 0.0125) * width, (0.65 - 0.0125) * height);
+	//glVertex2f((0.05 - 0.025) * width, (0.65 + 0.0) * height);
+	//glEnd();
+	float x = 0.05 * width;
+	float y = 0.65 * height;
+	float r = 0.025 * width;
+	if (isFilled)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_TRIANGLES);
+		int n = 6;
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+		{
+			glVertex2f(x, y);
+			glVertex2f(x + r * cos(2 * PI * (i + 1) / n), y + r * sin(2 * PI * (i + 1) / n));
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
+		glBegin(GL_LINE_LOOP);
+		int n = 6;
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+		{
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
 }
 
 void drawPolylineSelectionBox(void)
@@ -446,7 +482,7 @@ void drawPolylineSelectionBox(void)
 	glRectf(0.0, 0.5 * height, 0.1 * width, 0.6 * height);
 
 	// Draw rectangle icon.
-	glColor3f(0.0, 0.0, 0.0);
+	colorChange(Color);
 	glBegin(GL_LINE_STRIP);
 	glVertex2f((0.05 - 0.025) * width, (0.55 - 0.0125) * height);
 	glVertex2f((0.05 - 0.0125) * width, (0.55 + 0.0125) * height);
@@ -470,15 +506,45 @@ void drawCircleSelectionBox(void)
 
 	// Draw rectangle icon.
 	//glBegin(GL_LINE_LOOP);
-	glColor3f(0.0, 0.0, 0.0);
-	glBegin(GL_LINE_LOOP);
+	//colorChange(Color);
+	//glBegin(GL_LINE_LOOP);
 
-	int n = 50;
-	for (int i = 0; i < n; i++)     //Í¨¹ýÊýÑ§¼ÆËãÀ´»­¶à±ßÐÎµÄµã
-	{
-		glVertex2f(0.05 * width + 0.025 * width * cos(2 * PI * i / n), 0.45 * height + 0.025 * width * sin(2 * PI * i / n));
+	//int n = 50;
+	//for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+	//{
+	//	glVertex2f(0.05 * width + 0.025 * width * cos(2 * PI * i / n), 0.45 * height + 0.025 * width * sin(2 * PI * i / n));
+	//}
+	//glEnd();
+	float x = 0.05 * width;
+	float y = 0.45 * height;
+	float r = 0.025 * width;
+	colorChange(Color);
+	if (isFilled) {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_TRIANGLES);
+		int n = 100;
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+		{
+			//std::cout << x << " " << y <<  " " << r << std::endl;
+			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
+			glVertex2f(x, y);
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+			glVertex2f(x + r * cos(2 * PI * (i + 1) / n), y + r * sin(2 * PI * (1 + i) / n));
+		}
+		glEnd();
 	}
-	glEnd();
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glBegin(GL_LINE_LOOP);
+		int n = 50;
+		for (int i = 0; i < n; i++)     //Í¨ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+		{
+			//std::cout << x << " " << y <<  " " << r << std::endl;
+			//glVertex2f(125 + 12.5 * cos(2 * PI * i / n), 235 + 12.5 * sin(2 * PI * i / n));
+			glVertex2f(x + r * cos(2 * PI * i / n), y + r * sin(2 * PI * i / n));
+		}
+		glEnd();
+	}
 }
 
 // Function to draw unused part of left selection area.
@@ -797,19 +863,21 @@ void color_menu(int id) {
 		Color = BLACKX;
 	}
 	else if (id == 8) {
-		Color = REDX; 
+		Color = REDX;
 	}
 	else if (id == 9) {
 		Color = BLUEX;
 	}
 	else if (id == 10) {
-		Color = GREENX; 
+		Color = GREENX;
 	}
-	std::cout << "GColor = " << Color << std::endl;
+	glutPostRedisplay();
+	//std::cout << "GColor = " << Color << std::endl;
 }
 void filled_menu(int id) {
 	if (id == 5) isFilled = 1;
 	if (id == 6) isFilled = 0;
+	glutPostRedisplay();
 }
 // Function to create menu.
 void makeMenu(void)
